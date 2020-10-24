@@ -1,21 +1,25 @@
-{
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+module.exports = {
   "development": {
     "username": "root",
-    "password": "woqja5164!",
+    "password": process.env.DB_PASSWORD,
     "database": "nodebird",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "woqja5164!",
+    "password": process.env.DB_PASSWORD,
     "database": "nodebird",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "woqja5164!",
+    "password": process.env.DB_PASSWORD,
     "database": "nodebird",
     "host": "127.0.0.1",
     "dialect": "mysql"

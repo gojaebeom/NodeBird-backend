@@ -1,7 +1,4 @@
-const { DataTypes } = require("sequelize/types");
-const { sequelize } = require(".");
-
-module.export = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         //id가 기본적으로 들어있다.
         email:{
@@ -23,7 +20,7 @@ module.export = (sequelize, DataTypes) => {
     });
     User.associate = (db) => { 
         db.User.hasMany(db.Post);
-        db.User.hasMany(db.comment);
+        db.User.hasMany(db.Comment);
         db.User.belongsToMany(db.Post,{through:'Like', as : 'Liked'});
         db.User.belongsToMany(db.User, {through:'Follow', as :'Followers', foreignKey : 'FollowingId'});
         db.User.belongsToMany(db.User, {through:'Follow', as :'Followings', foreignKey :'FollowerId'});
